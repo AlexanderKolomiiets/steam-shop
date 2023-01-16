@@ -1,19 +1,34 @@
 import styled from 'styled-components';
 
 export const SortContainer = styled.div`
-  min-width: 190px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SortIcon = styled.div`
+  display: flex;
+  padding: 8px;
+  background: #837f7f;
+  border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const SortSelect = styled.div`
-  padding: 10px 20px;
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  width: max-content;
+  padding: 10px 15px;
+  top: 60px;
   background: #837f7f;
   border-radius: 10px;
   z-index: 2;
 `;
 
-export const SortOption = styled.a`
+export const SortOption = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   cursor: pointer;
 `;
