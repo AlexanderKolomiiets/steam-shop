@@ -1,6 +1,7 @@
 import { Logo, HeaderContainer } from './HeaderStyles';
+import SearchBar from '../SearchBar';
+import Nav from '../Nav';
 import logo from '../../images/steamLogo.png';
-import '../../mixin.scss';
 
 export const Header: React.FC = () => {
   return (
@@ -8,6 +9,8 @@ export const Header: React.FC = () => {
       <Logo>
         <img src={logo} alt="Steam logo" />
       </Logo>
+      <SearchBar />
+      <Nav />
     </HeaderContainer>
   );
 };
