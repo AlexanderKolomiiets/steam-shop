@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 `;
 
 export const CardContent = styled.div`
@@ -29,20 +29,28 @@ export const CardImage = styled.img`
 export const CardInfo = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
+`;
+
+export const CardInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 16px;
 `;
 
 export const CardLink = styled(Link)`
   position: fixed;
-  font-size: 24px;
   left: 20px;
   top: 20px;
-  text-decoration: none;
+  font-size: 24px;
   color: #fff;
+  text-decoration: none;
 `;
 
 export const CardDescription = styled.div`
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 20px;
 `;

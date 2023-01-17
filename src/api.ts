@@ -12,12 +12,12 @@ const options = {
   },
 };
 
-export const getGames = (): Promise<Product[]> => {
-  return fetch('https://steam2.p.rapidapi.com/search/Counter/page/1', options)
+export const getGames = (query: string): Promise<Product[]> => {
+  return fetch(`https://steam2.p.rapidapi.com/search/${query}/page/1`, options)
     .then(res => res.json());
 };
 
 export const getGameDetails = (gameId: string): Promise<ProductsDetails> => {
   return fetch(`https://steam2.p.rapidapi.com/appDetail/${gameId}`, options)
-    .then(response => response.json());
+    .then(res => res.json());
 };

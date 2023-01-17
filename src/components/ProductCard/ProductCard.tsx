@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { useEffect } from 'react';
 import { Product } from '../../types/product';
 import {
@@ -7,9 +6,9 @@ import {
   FavouriteIcon,
   CardDescription,
 } from './ProductCardStyles';
-import like from '../../images/like-icon.svg';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as favouritesActions } from '../../features/favouritesSlice';
+import like from '../../images/like-icon.svg';
 import liked from '../../images/liked-icon.svg';
 
 type Props = {
@@ -30,16 +29,11 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   const handleRemoveFromFavourite = (item: Product) => {
     dispatch(favouritesActions.remove(item.appId));
-
-    localStorage.setItem(
-      'favourites',
-      JSON.stringify(favourites),
-    );
   };
 
   return (
     <CardContainer>
-      <CardImage to={product.appId}>
+      <CardImage to={`products/${product.appId}`}>
         <img
           src={product.imgUrl}
           alt={product.title}

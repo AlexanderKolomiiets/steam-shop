@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
@@ -15,6 +16,7 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(Link)`
+  display: flex;
   cursor: pointer;
 `;

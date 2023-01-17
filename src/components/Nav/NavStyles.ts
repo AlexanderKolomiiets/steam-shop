@@ -3,14 +3,20 @@ import styled from 'styled-components';
 
 export const NavContainer = styled.nav`
   display: flex;
-  gap: 15px;
-  padding: 13px 15px;
-  font-size: 12px;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 12px 15px;
   background: #837f7f;
   border-radius: 10px;
 `;
 
-export const StyledNavLink = styled(NavLink)`
+export const NavSearch = styled.div`
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+`;
+
+export const NavigationLink = styled(NavLink)`
   color: #fff;
   text-decoration: none;
   cursor: pointer;

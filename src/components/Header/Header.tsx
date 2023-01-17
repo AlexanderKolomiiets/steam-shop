@@ -8,7 +8,9 @@ import logo from '../../images/steam-logo.png';
 export const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <Logo src={logo} alt="Steam logo" />
+      <Logo to="/">
+        <img src={logo} alt="Steam logo" />
+      </Logo>
       <SearchBar />
       <ProductOrder />
       <ProductSort />

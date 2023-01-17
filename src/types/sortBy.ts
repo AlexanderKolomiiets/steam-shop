@@ -1,4 +1,4 @@
 export enum SortBy {
-  Price = 'price',
-  Date = 'date',
+  Price = 'Price',
+  Date = 'Date',
 }

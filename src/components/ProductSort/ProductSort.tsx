@@ -10,11 +10,12 @@ import close from '../../images/dropdown-close.svg';
 import priceIcon from '../../images/price-icon.svg';
 import dateIcon from '../../images/date-icon.svg';
 import { SortBy } from '../../types/sortBy';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as filterActions } from '../../features/filterSlice';
 
 export const ProductSort: React.FC = () => {
   const dispatch = useAppDispatch();
+  const sortBy = useAppSelector((state) => state.filter.sortBy);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(prevState => !prevState);
@@ -27,13 +28,13 @@ export const ProductSort: React.FC = () => {
   return (
     <SortContainer>
       <SortIcon onClick={handleOpen}>
-        Price
+        {sortBy}
         <img src={isOpen ? close : open} alt="open icon" />
       </SortIcon>
 
       {isOpen && (
         <SortSelect id="Sort">
-          <SortOption onClick={() => handleSortChoose(SortBy.Date)}>
+          <SortOption onClick={() => handleSortChoose(SortBy.Price)}>
             Price
             <img src={priceIcon} alt="price icon" />
           </SortOption>

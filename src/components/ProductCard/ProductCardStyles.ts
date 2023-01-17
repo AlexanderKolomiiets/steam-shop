@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
+  position: relative;
+  color: #fff;
   background: #17323a;
   border-radius: 10px;
-  color: #fff;
   text-decoration: none;
   transition: transform 0.2s;
 
@@ -21,16 +21,16 @@ export const CardImage = styled(Link)`
 `;
 
 export const CardDescription = styled.div`
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 10px;
 `;
 
 export const FavouriteIcon = styled.img`
   position: absolute;
-  height: 20px;
   bottom: 10px;
   right: 10px;
+  height: 20px;
   cursor: pointer;
 `;

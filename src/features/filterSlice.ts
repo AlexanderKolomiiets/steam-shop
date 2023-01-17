@@ -4,14 +4,16 @@ import { SortBy } from '../types/sortBy';
 
 type State = {
   query: string;
-  orderBy: OrderBy | null;
-  sortBy: SortBy | null;
+  queryStatus: boolean;
+  orderBy: OrderBy;
+  sortBy: SortBy;
 };
 
 const initialState: State = {
-  query: '',
-  orderBy: null,
-  sortBy: null,
+  query: 'Counter',
+  queryStatus: false,
+  orderBy: OrderBy.toLower,
+  sortBy: SortBy.Price,
 };
 
 const filterSlice = createSlice({
@@ -20,6 +22,9 @@ const filterSlice = createSlice({
   reducers: {
     query: (state, action: PayloadAction<string>) => (
       { ...state, query: action.payload }
+    ),
+    queryStatus: (state, action: PayloadAction<boolean>) => (
+      { ...state, queryStatus: action.payload }
     ),
     orderBy: (state, action: PayloadAction<OrderBy>) => (
       { ...state, orderBy: action.payload }

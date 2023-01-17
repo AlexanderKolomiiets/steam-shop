@@ -1,5 +1,7 @@
+import EmptyTitle from '../../components/EmptyTitle';
+
 export const PageNotFound: React.FC = () => {
   return (
-    <h1>Page not Found</h1>
+    <EmptyTitle text="Page not Found" />
   );
 };

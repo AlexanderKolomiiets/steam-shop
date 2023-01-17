@@ -1,39 +1,36 @@
 import { useMemo } from 'react';
+import parsePrice from 'parse-price';
 import { SortBy } from '../../types/sortBy';
-// import { OrderBy } from '../../types/orderBy';
+import { OrderBy } from '../../types/orderBy';
 import { ProductGrid } from './ProductListStyles';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { useAppSelector } from '../../app/hooks';
 
 export const ProductList: React.FC = () => {
-  // const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products);
-  const query = useAppSelector((state) => state.filter.query);
   const sortBy = useAppSelector((state) => state.filter.sortBy);
   const orderBy = useAppSelector((state) => state.filter.orderBy);
 
-  const compareInput = (
-    title: string,
-    inputValue: string,
-  ) => title.toLowerCase().includes(inputValue.toLowerCase());
-
   const visibleProducts = useMemo(() => {
-    return products.filter(({ title }) => {
-      return compareInput(title, query);
-    })
-      .sort((a, b) => {
-        switch (sortBy) {
-          case SortBy.Date:
-            return a.released.localeCompare(b.released);
+    return [...products].sort((a, b) => {
+      switch (true) {
+        case (sortBy === SortBy.Date) && (orderBy === OrderBy.toLower):
+          return Date.parse(b.released) - Date.parse(a.released);
 
-          case SortBy.Price:
-            return a.price.localeCompare(b.price);
+        case (sortBy === SortBy.Date) && (orderBy === OrderBy.toBigger):
+          return Date.parse(a.released) - Date.parse(b.released);
 
-          default:
-            return 0;
-        }
-      });
-  }, [products, query, sortBy, orderBy]);
+        case (sortBy === SortBy.Price) && (orderBy === OrderBy.toLower):
+          return parsePrice(b.price) - parsePrice(a.price);
+
+        case (sortBy === SortBy.Price) && (orderBy === OrderBy.toBigger):
+          return parsePrice(a.price) - parsePrice(b.price);
+
+        default:
+          return 0;
+      }
+    });
+  }, [products, sortBy, orderBy]);
 
   return (
     <ProductGrid>

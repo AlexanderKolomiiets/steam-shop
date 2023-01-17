@@ -1,7 +1,6 @@
 import {
   SearchBarContainer,
   SearchBarInput,
-  SearchBarButton,
 } from './SearchBarStyles';
 import searchIcon from '../../images/search-icon.svg';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
@@ -25,9 +24,7 @@ export const SearchBar: React.FC = () => {
         value={query}
       />
 
-      <SearchBarButton>
-        <img src={searchIcon} alt="SearchBar button" />
-      </SearchBarButton>
+      <img src={searchIcon} alt="SearchBar button" />
     </SearchBarContainer>
   );
 };

@@ -2,14 +2,11 @@ import styled from 'styled-components';
 
 export const SortContainer = styled.div`
   position: relative;
-  display: flex;
-  justify-content: space-between;
 `;
 
 export const SortIcon = styled.div`
   display: flex;
-  flex-grow: 1;
-  gap: 50px;
+  gap: 100px;
   padding: 12px;
   background: #837f7f;
   border-radius: 10px;
@@ -17,22 +14,22 @@ export const SortIcon = styled.div`
 `;
 
 export const SortSelect = styled.div`
-  position: absolute;
   display: flex;
-  z-index: 1;
   gap: 4px;
   flex-direction: column;
+  position: absolute;
+  top: 60px;
+  z-index: 1;
   width: max-content;
   padding: 10px 15px;
-  top: 60px;
   background: #837f7f;
   border-radius: 10px;
 `;
 
 export const SortOption = styled.div`
   display: flex;
-  gap: 50px;
   justify-content: space-between;
   align-items: center;
+  gap: 50px;
   cursor: pointer;
 `;

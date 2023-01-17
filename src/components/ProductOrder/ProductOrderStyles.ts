@@ -13,14 +13,14 @@ export const OrderIcon = styled.div`
 `;
 
 export const OrderSelect = styled.div`
-  position: absolute;
   display: flex;
-  z-index: 1;
   gap: 4px;
   flex-direction: column;
+  position: absolute;
+  top: 60px;
+  z-index: 1;
   width: max-content;
   padding: 10px 15px;
-  top: 60px;
   background: #837f7f;
   border-radius: 10px;
 `;

@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage';
 import PageNotFound from './pages/PageNotFound';
 import ProductPage from './pages/ProductPage';
 import FavouritePage from './pages/FavouritePage';
-import './App.scss';
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
-          path="/:selectedId"
+          path="/products/:selectedId"
           element={<ProductPage />}
         />
         <Route
