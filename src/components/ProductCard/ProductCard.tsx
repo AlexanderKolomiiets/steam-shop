@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useEffect } from 'react';
 import { Product } from '../../types/product';
 import {
@@ -7,60 +8,60 @@ import {
   CardDescription,
 } from './ProductCardStyles';
 import like from '../../images/like-icon.svg';
-import { useAppSelector } from '../../app/hooks';
-// import liked from '../../images/liked-icon.svg';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { actions as favouritesActions } from '../../features/favouritesSlice';
+import liked from '../../images/liked-icon.svg';
 
 type Props = {
   product: Product;
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
+  const dispatch = useAppDispatch();
   const favourites = useAppSelector(state => state.favourites);
 
   useEffect(() => {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-  // const handleAddToFavourite = () => {
-  //   setFavoritePhones((prevPhones) => [...prevPhones, phone]);
-  // };
+  const handleAddToFavourite = (item: Product) => {
+    dispatch(favouritesActions.add(item));
+  };
 
-  // const handleRemoveFromFavourite = () => {
-  //   localStorage.setItem(
-  //     'favoritePhones',
-  //     JSON.stringify(favoritePhones.filter((item) => item.id !== id))
-  //   );
+  const handleRemoveFromFavourite = (item: Product) => {
+    dispatch(favouritesActions.remove(item.appId));
 
-  //   setFavoritePhones((prevPhones) =>
-  //     prevPhones.filter((prevPhone) => prevPhone.id !== id)
-  //   );
-  // };
-
-  // https://github.com/fe-jul22-team6/product_catalog/blob/main/frontend/src/components/PhoneCard/PhoneCard.tsx
-
-  const {
-    appId,
-    title,
-    imgUrl,
-    released,
-    price,
-  } = product;
+    localStorage.setItem(
+      'favourites',
+      JSON.stringify(favourites),
+    );
+  };
 
   return (
     <CardContainer>
-      <CardImage to={appId}>
+      <CardImage to={product.appId}>
         <img
-          src={imgUrl}
-          alt={title}
+          src={product.imgUrl}
+          alt={product.title}
           style={{ width: '100%', borderRadius: '10px' }}
         />
       </CardImage>
       <CardDescription>
-        <p style={{ fontSize: '18px' }}>{title}</p>
-        <p>{released}</p>
-        <p>{price}</p>
+        <p style={{ fontSize: '18px' }}>{product.title}</p>
+        <p>{product.released}</p>
+        <p>{product.price}</p>
       </CardDescription>
-      <FavouriteIcon src={like} />
+      {!favourites.map(({ appId }) => appId).includes(product.appId) ? (
+        <FavouriteIcon
+          src={like}
+          onClick={() => handleAddToFavourite(product)}
+        />
+      ) : (
+        <FavouriteIcon
+          src={liked}
+          onClick={() => handleRemoveFromFavourite(product)}
+        />
+      )}
     </CardContainer>
   );
 };

@@ -19,6 +19,7 @@ export const SortIcon = styled.div`
 export const SortSelect = styled.div`
   position: absolute;
   display: flex;
+  z-index: 1;
   gap: 4px;
   flex-direction: column;
   width: max-content;

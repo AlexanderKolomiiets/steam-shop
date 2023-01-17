@@ -15,6 +15,7 @@ export const OrderIcon = styled.div`
 export const OrderSelect = styled.div`
   position: absolute;
   display: flex;
+  z-index: 1;
   gap: 4px;
   flex-direction: column;
   width: max-content;

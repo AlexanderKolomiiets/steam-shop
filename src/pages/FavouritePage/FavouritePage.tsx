@@ -1,9 +1,9 @@
-import ProductList from '../../components/ProductList';
+import FavouritesList from '../../components/FavouritesList';
 
 export const FavouritePage: React.FC = () => {
   return (
     <>
-      <ProductList />
+      <FavouritesList />
     </>
   );
 };

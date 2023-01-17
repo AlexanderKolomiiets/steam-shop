@@ -10,8 +10,8 @@ const favouritesSlice = createSlice({
     add: (favourites, action: PayloadAction<Product>) => {
       favourites.push(action.payload);
     },
-    remove: (favourites, action: PayloadAction<Product>) => {
-      return favourites.filter(fav => fav !== action.payload);
+    remove: (favourites, action: PayloadAction<string>) => {
+      return favourites.filter(fav => fav.appId !== action.payload);
     },
   },
 });
