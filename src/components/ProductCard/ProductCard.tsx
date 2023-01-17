@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Product } from '../../types/product';
 import {
   CardContainer,
@@ -6,6 +7,7 @@ import {
   CardDescription,
 } from './ProductCardStyles';
 import like from '../../images/like-icon.svg';
+import { useAppSelector } from '../../app/hooks';
 // import liked from '../../images/liked-icon.svg';
 
 type Props = {
@@ -13,6 +15,29 @@ type Props = {
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
+  const favourites = useAppSelector(state => state.favourites);
+
+  useEffect(() => {
+    localStorage.setItem('favourites', JSON.stringify(favourites));
+  }, [favourites]);
+
+  const handleAddToFavourite = () => {
+    setFavoritePhones((prevPhones) => [...prevPhones, phone]);
+  };
+
+  const handleRemoveFromFavourite = () => {
+    localStorage.setItem(
+      'favoritePhones',
+      JSON.stringify(favoritePhones.filter((item) => item.id !== id))
+    );
+
+    setFavoritePhones((prevPhones) =>
+      prevPhones.filter((prevPhone) => prevPhone.id !== id)
+    );
+  };
+
+  https://github.com/fe-jul22-team6/product_catalog/blob/main/frontend/src/components/PhoneCard/PhoneCard.tsx
+
   const {
     appId,
     title,
@@ -22,8 +47,14 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   } = product;
 
   return (
-    <CardContainer to={appId}>
-      <CardImage src={imgUrl} alt={title} />
+    <CardContainer>
+      <CardImage to={appId}>
+        <img
+          src={imgUrl}
+          alt={title}
+          style={{ width: '100%', borderRadius: '10px' }}
+        />
+      </CardImage>
       <CardDescription>
         <p style={{ fontSize: '18px' }}>{title}</p>
         <p>{released}</p>

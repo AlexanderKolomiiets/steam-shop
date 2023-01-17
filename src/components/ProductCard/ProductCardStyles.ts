@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const CardContainer = styled(Link)`
+export const CardContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,15 +10,14 @@ export const CardContainer = styled(Link)`
   color: #fff;
   text-decoration: none;
   transition: transform 0.2s;
-  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);
   }
 `;
 
-export const CardImage = styled.img`
-  border-radius: 10px;
+export const CardImage = styled(Link)`
+  cursor: pointer;
 `;
 
 export const CardDescription = styled.div`
@@ -33,4 +32,5 @@ export const FavouriteIcon = styled.img`
   height: 20px;
   bottom: 10px;
   right: 10px;
+  cursor: pointer;
 `;

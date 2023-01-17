@@ -1,6 +1,7 @@
 {
   "name": "steam",
   "version": "0.1.0",
+  "homepage": ".",
   "dependencies": {
     "@mate-academy/students-ts-config": "0.0.4",
     "@mate-academy/stylelint-config": "0.0.9",
