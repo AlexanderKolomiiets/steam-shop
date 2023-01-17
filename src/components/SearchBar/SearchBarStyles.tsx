@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const SearchBarContainer = styled.div`
   display: flex;
+  justify-content: space-between;
+  width: 55%;
   padding: 8px 10px;
   background: #837f7f;
   border-radius: 10px;

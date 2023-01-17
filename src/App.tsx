@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import { getGames } from './api';
-import { Product } from './types/product';
+import { useAppDispatch } from './app/hooks';
+import { actions as productsActions } from './features/productsSlice';
 import './App.scss';
 
 function App() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
-      setProducts(await getGames());
+      const products = await getGames();
+
+      dispatch(productsActions.add(products));
     };
 
     fetchProducts();
@@ -19,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ProductList products={products} />
+      <ProductList />
     </div>
   );
 }

@@ -6,18 +6,19 @@ import {
   OrderSelect,
 } from './ProductOrderStyles';
 import orderIcon from '../../images/order-icon.svg';
-
-type OrderBy = 'toBigger' | 'toLower';
+import { OrderBy } from '../../types/orderBy';
+import { useAppDispatch } from '../../app/hooks';
+import { actions as filterActions } from '../../features/filterSlice';
 
 export const ProductOrder: React.FC = () => {
+  const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const [orderBy, setOrderBy] = useState<null | OrderBy>(null);
 
   const handleOpen = () => setIsOpen(prevState => !prevState);
 
   const handleOrderChoose = (order: OrderBy) => {
     handleOpen();
-    setOrderBy(order);
+    dispatch(filterActions.orderBy(order));
   };
 
   return (
@@ -28,12 +29,11 @@ export const ProductOrder: React.FC = () => {
 
       {isOpen && (
         <OrderSelect id="order">
-          <OrderOption onClick={() => handleOrderChoose('toBigger')}>
+          <OrderOption onClick={() => handleOrderChoose(OrderBy.toBigger)}>
             Lower to bigger
           </OrderOption>
-          <OrderOption onClick={() => handleOrderChoose('toLower')}>
+          <OrderOption onClick={() => handleOrderChoose(OrderBy.toLower)}>
             Bigger to lower
-            {orderBy}
           </OrderOption>
         </OrderSelect>
       )}

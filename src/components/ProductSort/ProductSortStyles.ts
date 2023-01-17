@@ -8,7 +8,8 @@ export const SortContainer = styled.div`
 
 export const SortIcon = styled.div`
   display: flex;
-  padding: 8px;
+  gap: 50px;
+  padding: 12px;
   background: #837f7f;
   border-radius: 10px;
   cursor: pointer;
@@ -29,6 +30,8 @@ export const SortSelect = styled.div`
 
 export const SortOption = styled.div`
   display: flex;
+  gap: 50px;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
 `;

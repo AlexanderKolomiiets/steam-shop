@@ -1,16 +1,18 @@
-import { useState } from 'react';
 import {
   SearchBarContainer,
   SearchBarInput,
   SearchBarButton,
 } from './SearchBarStyles';
 import searchIcon from '../../images/search-icon.svg';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { actions as filterActions } from '../../features/filterSlice';
 
 export const SearchBar: React.FC = () => {
-  const [query, setQuery] = useState('');
+  const dispatch = useAppDispatch();
+  const query = useAppSelector(state => state.filter.query);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
+    dispatch(filterActions.query(event.target.value));
   };
 
   return (
