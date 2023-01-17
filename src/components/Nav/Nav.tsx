@@ -3,8 +3,8 @@ import { NavContainer, StyledNavLink } from './NavStyles';
 export const Nav: React.FC = () => {
   return (
     <NavContainer>
-      <StyledNavLink>Search</StyledNavLink>
-      <StyledNavLink>Like list</StyledNavLink>
+      <StyledNavLink to="/">Search</StyledNavLink>
+      <StyledNavLink to="/favourites">Like list</StyledNavLink>
     </NavContainer>
   );
 };

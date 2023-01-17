@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { Product } from '../../types/product';
 import { SortBy } from '../../types/sortBy';
 // import { OrderBy } from '../../types/orderBy';
 import { ProductGrid } from './ProductListStyles';
@@ -38,8 +37,8 @@ export const ProductList: React.FC = () => {
 
   return (
     <ProductGrid>
-      {visibleProducts.map((product: Product) => (
-        <ProductCard key={product.appId} product={product} />
+      {visibleProducts.map((product) => (
+        <ProductCard product={product} key={+product.appId} />
       ))}
     </ProductGrid>
   );

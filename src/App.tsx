@@ -1,28 +1,26 @@
-import { useEffect } from 'react';
-import Header from './components/Header';
-import ProductList from './components/ProductList';
-import { getGames } from './api';
-import { useAppDispatch } from './app/hooks';
-import { actions as productsActions } from './features/productsSlice';
+import { Routes, Route, Navigate } from 'react-router';
+import HomePage from './pages/HomePage';
+import PageNotFound from './pages/PageNotFound';
+import ProductPage from './pages/ProductPage';
+import FavouritePage from './pages/FavouritePage';
 import './App.scss';
 
 function App() {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const products = await getGames();
-
-      dispatch(productsActions.add(products));
-    };
-
-    fetchProducts();
-  }, []);
-
   return (
     <div className="App">
-      <Header />
-      <ProductList />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/:selectedId"
+          element={<ProductPage />}
+        />
+        <Route
+          path="/favourites"
+          element={<FavouritePage />}
+        />
+        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </div>
   );
 }

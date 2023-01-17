@@ -22,7 +22,6 @@ export const OrderSelect = styled.div`
   top: 60px;
   background: #837f7f;
   border-radius: 10px;
-  z-index: 2;
 `;
 
 export const OrderOption = styled.div`

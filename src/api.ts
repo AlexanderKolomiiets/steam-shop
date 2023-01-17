@@ -1,4 +1,5 @@
 import { Product } from './types/product';
+import { ProductsDetails } from './types/productDetails';
 
 const BASE_URL = 'steam2.p.rapidapi.com';
 const API_KEY = '3913427be6msh1e24da35ed4bdf8p1e7621jsn3208e4aa7e2b';
@@ -16,7 +17,7 @@ export const getGames = (): Promise<Product[]> => {
     .then(res => res.json());
 };
 
-export function getGameDetails(gameId: number) {
+export const getGameDetails = (gameId: string): Promise<ProductsDetails> => {
   return fetch(`https://steam2.p.rapidapi.com/appDetail/${gameId}`, options)
     .then(response => response.json());
-}
+};

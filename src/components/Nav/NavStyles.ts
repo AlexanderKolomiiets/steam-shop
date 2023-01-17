@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavContainer = styled.nav`
@@ -9,6 +10,8 @@ export const NavContainer = styled.nav`
   border-radius: 10px;
 `;
 
-export const StyledNavLink = styled.a`
+export const StyledNavLink = styled(NavLink)`
+  color: #fff;
+  text-decoration: none;
   cursor: pointer;
 `;

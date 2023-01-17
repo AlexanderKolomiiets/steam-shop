@@ -10,6 +10,7 @@ const productsSlice = createSlice({
     add: (products, action: PayloadAction<Product[]>) => {
       action.payload.forEach((item => products.push(item)));
     },
+    clear: () => [],
   },
 });
 
