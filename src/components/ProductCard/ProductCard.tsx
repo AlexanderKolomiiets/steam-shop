@@ -21,22 +21,22 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-  const handleAddToFavourite = () => {
-    setFavoritePhones((prevPhones) => [...prevPhones, phone]);
-  };
+  // const handleAddToFavourite = () => {
+  //   setFavoritePhones((prevPhones) => [...prevPhones, phone]);
+  // };
 
-  const handleRemoveFromFavourite = () => {
-    localStorage.setItem(
-      'favoritePhones',
-      JSON.stringify(favoritePhones.filter((item) => item.id !== id))
-    );
+  // const handleRemoveFromFavourite = () => {
+  //   localStorage.setItem(
+  //     'favoritePhones',
+  //     JSON.stringify(favoritePhones.filter((item) => item.id !== id))
+  //   );
 
-    setFavoritePhones((prevPhones) =>
-      prevPhones.filter((prevPhone) => prevPhone.id !== id)
-    );
-  };
+  //   setFavoritePhones((prevPhones) =>
+  //     prevPhones.filter((prevPhone) => prevPhone.id !== id)
+  //   );
+  // };
 
-  https://github.com/fe-jul22-team6/product_catalog/blob/main/frontend/src/components/PhoneCard/PhoneCard.tsx
+  // https://github.com/fe-jul22-team6/product_catalog/blob/main/frontend/src/components/PhoneCard/PhoneCard.tsx
 
   const {
     appId,
