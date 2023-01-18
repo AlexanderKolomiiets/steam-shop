@@ -5,13 +5,13 @@ import {
   SortOption,
   SortSelect,
 } from './ProductSortStyles';
+import { SortBy } from '../../types/sortBy';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { actions as filterActions } from '../../features/filterSlice';
 import open from '../../images/dropdown-open.svg';
 import close from '../../images/dropdown-close.svg';
 import priceIcon from '../../images/price-icon.svg';
 import dateIcon from '../../images/date-icon.svg';
-import { SortBy } from '../../types/sortBy';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { actions as filterActions } from '../../features/filterSlice';
 
 export const ProductSort: React.FC = () => {
   const dispatch = useAppDispatch();

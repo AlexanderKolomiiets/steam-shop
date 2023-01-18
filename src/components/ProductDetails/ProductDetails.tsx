@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getGameDetails } from '../../api';
-import { Loader } from '../Loader';
 import { ProductsDetails } from '../../types/productDetails';
 import {
   CardContent,
@@ -9,9 +8,10 @@ import {
   CardDescription,
   CardContainer,
   CardInfo,
-  CardLink,
   CardInfoContainer,
 } from './ProductDetailsStyles';
+import Loader from '../Loader';
+import GoBackLink from '../GoBackLink';
 
 export const ProductDetails: React.FC = () => {
   const [game, setGame] = useState<null | ProductsDetails>(null);
@@ -43,7 +43,7 @@ export const ProductDetails: React.FC = () => {
     <>
       {game && (
         <>
-          <CardLink to="/">Back</CardLink>
+          <GoBackLink to="/" text="Back" />
           <CardContainer>
             <CardContent>
               <CardImage src={game.imgUrl} alt={game.title} />

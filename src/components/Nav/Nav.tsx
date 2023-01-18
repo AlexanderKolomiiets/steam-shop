@@ -1,5 +1,5 @@
+import { NavContainer, FavouriteLink, SearchButton } from './NavStyles';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { NavContainer, NavigationLink, NavSearch } from './NavStyles';
 import { actions as filterActions } from '../../features/filterSlice';
 
 export const Nav: React.FC = () => {
@@ -12,8 +12,8 @@ export const Nav: React.FC = () => {
 
   return (
     <NavContainer>
-      <NavSearch onClick={handleQueryStatus}>Search</NavSearch>
-      <NavigationLink to="/favourites">Like list</NavigationLink>
+      <SearchButton onClick={handleQueryStatus}>Search</SearchButton>
+      <FavouriteLink to="/favourites">Like list</FavouriteLink>
     </NavContainer>
   );
 };

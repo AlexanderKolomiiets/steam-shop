@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -37,15 +36,6 @@ export const CardInfoContainer = styled.div`
   flex-direction: column;
   gap: 5px;
   font-size: 16px;
-`;
-
-export const CardLink = styled(Link)`
-  position: fixed;
-  left: 20px;
-  top: 20px;
-  font-size: 24px;
-  color: #fff;
-  text-decoration: none;
 `;
 
 export const CardDescription = styled.div`

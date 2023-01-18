@@ -7,7 +7,7 @@ import { ProductCard } from '../ProductCard/ProductCard';
 import { useAppSelector } from '../../app/hooks';
 
 export const ProductList: React.FC = () => {
-  const products = useAppSelector((state) => state.products);
+  const products = useAppSelector((state) => state.products.products);
   const sortBy = useAppSelector((state) => state.filter.sortBy);
   const orderBy = useAppSelector((state) => state.filter.orderBy);
 

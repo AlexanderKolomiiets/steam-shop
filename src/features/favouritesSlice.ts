@@ -8,11 +8,11 @@ const favouritesSlice = createSlice({
   name: 'favourites',
   initialState,
   reducers: {
-    add: (favourites, action: PayloadAction<Product>) => {
-      favourites.push(action.payload);
+    add: (state, action: PayloadAction<Product>) => {
+      state.push(action.payload);
     },
-    remove: (favourites, action: PayloadAction<string>) => {
-      return favourites.filter(fav => fav.appId !== action.payload);
+    remove: (state, action: PayloadAction<string>) => {
+      return state.filter(fav => fav.appId !== action.payload);
     },
   },
 });

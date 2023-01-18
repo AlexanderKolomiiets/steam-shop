@@ -5,10 +5,10 @@ import {
   OrderOption,
   OrderSelect,
 } from './ProductOrderStyles';
-import orderIcon from '../../images/order-icon.svg';
 import { OrderBy } from '../../types/orderBy';
 import { useAppDispatch } from '../../app/hooks';
 import { actions as filterActions } from '../../features/filterSlice';
+import orderIcon from '../../images/order-icon.svg';
 
 export const ProductOrder: React.FC = () => {
   const dispatch = useAppDispatch();

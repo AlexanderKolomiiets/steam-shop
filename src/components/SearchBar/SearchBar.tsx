@@ -2,9 +2,9 @@ import {
   SearchBarContainer,
   SearchBarInput,
 } from './SearchBarStyles';
-import searchIcon from '../../images/search-icon.svg';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as filterActions } from '../../features/filterSlice';
+import searchIcon from '../../images/search-icon.svg';
 
 export const SearchBar: React.FC = () => {
   const dispatch = useAppDispatch();

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavContainer = styled.nav`
@@ -10,13 +10,13 @@ export const NavContainer = styled.nav`
   border-radius: 10px;
 `;
 
-export const NavSearch = styled.div`
+export const SearchButton = styled.div`
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 `;
 
-export const NavigationLink = styled(NavLink)`
+export const FavouriteLink = styled(Link)`
   color: #fff;
   text-decoration: none;
   cursor: pointer;
