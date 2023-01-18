@@ -1,6 +1,7 @@
 import { NavContainer, FavouriteLink, SearchButton } from './NavStyles';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { actions as filterActions } from '../../features/filterSlice';
+import { actions as pageActions } from '../../features/pageSlice';
 
 export const Nav: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -8,6 +9,7 @@ export const Nav: React.FC = () => {
 
   const handleQueryStatus = () => {
     dispatch(filterActions.queryStatus(!queryStatus));
+    dispatch(pageActions.set(1));
   };
 
   return (

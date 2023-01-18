@@ -35,7 +35,10 @@ export const ProductList: React.FC = () => {
   return (
     <ProductGrid>
       {visibleProducts.map((product) => (
-        <ProductCard product={product} key={+product.appId} />
+        <ProductCard
+          product={product}
+          key={product.appId ? +product.appId : Math.random()}
+        />
       ))}
     </ProductGrid>
   );

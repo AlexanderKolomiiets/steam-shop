@@ -24,7 +24,7 @@ export const ProductDetails: React.FC = () => {
       setIsLoading(true);
 
       try {
-        if (selectedId !== undefined) {
+        if (selectedId) {
           setGame(await getGameDetails(selectedId));
         }
       } finally {

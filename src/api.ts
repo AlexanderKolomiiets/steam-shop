@@ -2,7 +2,7 @@ import { Product } from './types/product';
 import { ProductsDetails } from './types/productDetails';
 
 const BASE_URL = 'steam2.p.rapidapi.com';
-const API_KEY = '3913427be6msh1e24da35ed4bdf8p1e7621jsn3208e4aa7e2b';
+const API_KEY = '924f1fcc9cmsh6695c148305c2d8p1e0c92jsne0a97b474af8';
 
 const options = {
   method: 'GET',
@@ -12,8 +12,8 @@ const options = {
   },
 };
 
-export const getGames = (query: string): Promise<Product[]> => {
-  return fetch(`https://steam2.p.rapidapi.com/search/${query}/page/1`, options)
+export const getGames = (query: string, page: number): Promise<Product[]> => {
+  return fetch(`https://steam2.p.rapidapi.com/search/${query}/page/${page}`, options)
     .then(res => res.json());
 };
 
