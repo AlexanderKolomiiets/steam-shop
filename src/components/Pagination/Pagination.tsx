@@ -13,12 +13,14 @@ export const PaginationNav: React.FC = () => {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          margin: '300px 0 100px',
+          margin: '100px 0',
         }}
         variant="outlined"
         color="primary"
-        count={6}
+        count={8}
         page={page}
+        siblingCount={0}
+        boundaryCount={1}
         onChange={(_, num) => dispatch(pageActions.set(num))}
       />
     </>
